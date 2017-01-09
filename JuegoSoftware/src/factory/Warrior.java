@@ -1,5 +1,7 @@
 package factory;
 
-public interface Warrior {
+import fighter.NPC;
 
+public interface Warrior {
+public NPC generate();
 }

@@ -1,6 +1,7 @@
 package fighter;
 
 public class NPC extends Fighter{
+	
 	public NPC(int Attack,int Defense, int Intelligence, int Speed){
 		setAttack(Attack);
 		setDefense(Defense);

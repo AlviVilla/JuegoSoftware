@@ -13,8 +13,7 @@ public class Fighter {
 	private int defense;
 	private int intelligence;
 	private int speed;
-	
-	
+
 	Estado miseria;
 	Estado medio;
 	Estado perfecto;
@@ -26,33 +25,46 @@ public class Fighter {
 		this.miseria = new Miseria(this);
 		this.medio = new Medio(this);
 		this.perfecto = new Perfecto(this);
-		if(health>=totalHealth*2/3){
+		if (health >= totalHealth * 2 / 3) {
 			state = perfecto;
-		}
-		else if(health< totalHealth/4){
+		} else if (health < totalHealth / 4) {
 			state = miseria;
-		}
-		else {
+		} else {
 			state = medio;
-		};
-		
+		}
+		;
+
+	}
+
+	public Estado getState() {
+		if (health >= totalHealth * 2 / 3) {
+			state = perfecto;
+			return state;
+		} else if (health < totalHealth / 4) {
+			state = miseria;
+			return state;
+		} else {
+			state = medio;
+			return state;
+		}
 	}
 
 	public int getAttack() {
 		return attack;
 	}
-	
+
 	public void setAttack(int attack) {
 		this.attack = attack;
 	}
-	public int getSpeed(){
-	return speed;
+
+	public int getSpeed() {
+		return speed;
 	}
-	
-	public void setSpeed(int speed){
-		this.speed= speed;
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
-	
+
 	public void setHealth(int health) {
 		this.health = health;
 	}

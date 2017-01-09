@@ -1,5 +1,7 @@
 package factory;
 
-public interface Mage {
+import fighter.NPC;
 
+public interface Mage {
+	public NPC generate();
 }
