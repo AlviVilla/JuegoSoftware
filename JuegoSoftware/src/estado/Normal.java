@@ -16,6 +16,12 @@ public class Normal implements Estado {
 		
 	}
 
+	@Override
+	public void remove(Fighter fighter) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

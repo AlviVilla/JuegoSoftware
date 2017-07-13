@@ -1,13 +1,10 @@
 package event;
-/*
-
-package event;
 
 import java.util.Scanner;
 
 import calculator.CombatCalculator;
 import fighter.Fighter;
-import main.Game;
+import game.Game;
 
 public class Fight implements Event {
 	
@@ -16,12 +13,19 @@ public class Fight implements Event {
 
 	public Fight(Fighter enemigo) {
 		
-		this.enemigo = enemigo;
+
 
 	}
 
 	@Override
 	public void execute(Game game) {
+		//Rand y elegimos un enemigo
+		enemigo = game.factory.generateWarrior(game.level);
+		
+		
+		
+		}
+	}
 		/*
 		 * for (int i = 0; enemigo.getHealth() <= 0 || game.player.getHealth()
 		 * <= 0; i++) { System.out.println("Ronda de combate numero " + i);

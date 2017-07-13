@@ -19,14 +19,14 @@ public class CombatCalculator {
 	public void resolveTurn(Fighter a , Fighter b){
 		
 		if(a.getSpeed() > b.getSpeed()){
-			b.setHealth(b.getHealth() - calculateDmg(a.getAttack(),b.getDefense()));
+			b.reciveDmg(calculateDmg(a.getAttack(),b.getDefense()));
 			if(b.isAlive())
-				a.setHealth(a.getHealth() - calculateDmg(b.getAttack(),a.getDefense()));
+				a.reciveDmg(calculateDmg(b.getAttack(),a.getDefense()));
 		}
 		else {
-				a.setHealth(a.getHealth() - calculateDmg(b.getAttack(),a.getDefense()));
+				a.reciveDmg(calculateDmg(b.getAttack(),a.getDefense()));
 				if(a.isAlive())
-					b.setHealth(b.getHealth() - calculateDmg(a.getAttack(),b.getDefense()));
+					b.reciveDmg(calculateDmg(a.getAttack(),b.getDefense()));
 		}
 		
 	}

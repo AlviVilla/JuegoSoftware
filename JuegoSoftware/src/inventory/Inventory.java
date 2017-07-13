@@ -1,8 +1,7 @@
 package inventory;
 
 public class Inventory {
-	private Weapon weapon;
-	private Shield shield;
-	private Armor armor;
+	public Weapon weapon;
+	public Armor armor;
 
 }

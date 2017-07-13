@@ -21,7 +21,6 @@ public class EndFight implements Event{
 		//add drop a evento 
 		
 		//game.eventos.push();
-		//.execute(game);
 		
 	}
 

@@ -15,12 +15,7 @@ public class Fighter {
 	Strategy strategy;
 
 	public Fighter() {
-		
-		
-		
-		
-		
-		
+			
 	}
 
 	public int getHealth() {
@@ -31,15 +26,28 @@ public class Fighter {
 		stats.health -= dmg;
 		
 	}
-
-
 	
-
 	public boolean isAlive() {
-		if(stats.health>0)
-			return true;
+		return(stats.health>0);
+	}
+
+	public int getSpeed() {
 		// TODO Auto-generated method stub
-		return false;
+		return stats.speed;
+	}
+
+	public double getAttack() {
+		// TODO Auto-generated method stub
+		return stats.attack + inventory.weapon.getValue();
+	}
+
+	public double getDefense() {
+		// TODO Auto-generated method stub
+		return stats.defense + inventory.armor.getValue();
+	}
+	public void reciveDmg(int dmg){
+		stats.health -= dmg;
+		
 	}
 
 }

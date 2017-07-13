@@ -7,7 +7,8 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.out.println("bienvenido");
+		System.out.println("Bienvenido a nombre por decidir");
+		System.out.println("Comenzando...");
 		
 		Game game = new Game();
 		while(!game.eventos.isEmpty()){

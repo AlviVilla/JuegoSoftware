@@ -2,6 +2,7 @@ package fighter;
 
 public class Stats {
 
+	public int maxHealth;
 	public int health;
 	public int attack;
 	public int defense;
@@ -11,12 +12,21 @@ public class Stats {
 	
 	public Stats(int lvl){
 		
-		health = 10*lvl+50;
+		maxHealth = 10*lvl+50;
+		health = maxHealth;
 		attack = 2*lvl+3;
 		defense = 1*lvl+1;
 		intelligence = 2*lvl+3;
 		speed =  2*lvl+2;
 	}
 	
-	
+	public void Upgrade(){
+		maxHealth += 10;
+		health += 10;
+		attack += 2;
+		defense += 1;
+		intelligence += 2;
+		
+		
+	}
 }
