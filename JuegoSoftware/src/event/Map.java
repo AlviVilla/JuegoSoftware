@@ -39,6 +39,7 @@ public class Map implements Event {
 private void addEnemies(Game game){
 		
 		//Logica para nivel
+
 		NPC mago= game.factory.generateMage(game.level);
 		añadirCondimentos(mago,game);
 
@@ -60,7 +61,6 @@ private void addEnemies(Game game){
 			npc=new Poderoso(npc);
 		if(npc.strategy.getStrategy()== "defensiva")
 			npc=new Defensivo(npc);
-		
 	}
 	
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import decorador.Defensivo;
 import decorador.Normalucho;
 import decorador.Poderoso;
+
 import efectos.Neutro;
 import fighter.Fighter;
 import fighter.Player;
