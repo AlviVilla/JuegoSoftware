@@ -2,6 +2,9 @@ package game;
 
 import java.util.Scanner;
 
+import decorador.Defensivo;
+import decorador.Normalucho;
+import decorador.Poderoso;
 
 import efectos.Neutro;
 import fighter.Fighter;
@@ -19,6 +22,13 @@ public class PlayerController {
 		System.out.println("");
 		System.out.println("1] Ataque normal		2] Ataque Especial");
 		System.out.println("3] Cambiar Estrategia			4] ");
+		
+		if(player.strategy.getStrategy()=="defensiva")
+			player = new Defensivo(player);
+		else if(player.strategy.getStrategy()=="agresiva")
+			player = new Poderoso(player);
+		else 
+			player = new Normalucho(player);
 		Scanner sc = new Scanner(System.in);
 		int x = sc.nextInt();
 		switch (x) {

@@ -12,7 +12,7 @@ public class Fighter {
 	public Stats stats;
 	private Inventory inventory;
 	public Estado estado;
-
+	String descripcionAtaque="";
 	public Strategy strategy;
 	public Efecto efecto;
 	public Fighter() {
@@ -25,6 +25,10 @@ public class Fighter {
 	public void takeDmg(int dmg){
 		
 		stats.health -= dmg;
+		
+	}
+	public String getDecorador(){
+		return descripcionAtaque;
 		
 	}
 	

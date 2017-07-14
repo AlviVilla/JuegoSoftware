@@ -14,5 +14,12 @@ public class Normal implements Strategy {
 		// TODO Auto-generated method stub
 		return 1;
 	}
+	
+	@Override
+	public String getStrategy() {
+		// TODO Auto-generated method stub
+		return "normal";
+	}
+
 
 }
