@@ -1,7 +1,8 @@
 package fighter;
 
+import efectos.Efecto;
 import estado.Estado;
-
+import estado.Normal;
 import inventory.Inventory;
 import strategy.Strategy;
 
@@ -10,12 +11,12 @@ public class Fighter {
 	
 	public Stats stats;
 	private Inventory inventory;
-	public onHit
+	public Estado estado;
 
 	public Strategy strategy;
-
+	public Efecto efecto;
 	public Fighter() {
-			
+			estado = new Normal();
 	}
 
 	public int getHealth() {

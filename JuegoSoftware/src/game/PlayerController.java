@@ -2,11 +2,14 @@ package game;
 
 import java.util.Scanner;
 
+import efectos.Neutro;
+import fighter.Fighter;
 import fighter.Player;
+
 
 public class PlayerController {
 	
-	public void combatAction(Player player){
+	public void combatAction(Fighter player){
 		input: while(true){
 		System.out.println("Que quieres hacer?: ");
 		System.out.println("");
@@ -16,7 +19,7 @@ public class PlayerController {
 		int x = sc.nextInt();
 		switch (x) {
 		case 1:
-			player.
+			player.efecto = new Neutro();
 			break input;
 		case 2:
 			
@@ -33,6 +36,9 @@ public class PlayerController {
 	
 	public Player createPlayer(){
 		
+		Player player = new Player();
+		
+		return player;
 	}
 	
 	public void decideStrategy(){
