@@ -13,6 +13,7 @@ public class Fighter {
 	private Inventory inventory;
 	public Estado estado;
 	String descripcionAtaque="";
+	String tipo;
 	public Strategy strategy;
 	public Efecto efecto;
 	public Fighter() {
@@ -28,8 +29,13 @@ public class Fighter {
 		
 	}
 	public String getDecorador(){
-		return descripcionAtaque;
-		
+		if(tipo=="mago")
+			return descripcionAtaque + "Utilizo magia ";
+		else if(tipo=="rogue")
+			return descripcionAtaque + "Utilizo sus dagas ";
+		else if(tipo=="warrior")
+			return descripcionAtaque + "Utilizo su espadon ";
+		else return descripcionAtaque;
 	}
 	
 	public boolean isAlive() {

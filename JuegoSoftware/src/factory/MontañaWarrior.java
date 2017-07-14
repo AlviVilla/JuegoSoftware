@@ -6,7 +6,7 @@ public class MontañaWarrior implements Warrior{
 public NPC generate(int lvl) {
 		
 		System.out.println("Wow! aparecio un warrior de las Montañas! ");
-		return new NPC( lvl);
+		return new NPC( lvl, "warrior");
 	}
 
 
