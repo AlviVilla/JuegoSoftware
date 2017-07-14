@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
 
-import event.Enemy;
+
 import event.Event;
 import factory.CiudadEnemyFactory;
 import factory.DesiertoEnemyFactory;
