@@ -1,16 +1,19 @@
 package efectos;
 
+import estado.Congelado;
 import estado.Estado;
 import fighter.Fighter;
 
-public class AplicarEstado implements Efecto {
-	Estado state;
-	public AplicarEstado(Estado estado){
-		state = estado;
+public class AplicarCongelado implements Efecto {
+	
+	public AplicarCongelado(){
+		
 	}
 	public void onHit(Fighter hited){
 		
-		hited.estado = state;
+		hited.estado.remove(hited);
+		hited.estado = new Congelado();
+		hited.estado.apply(hited);
 	}
 	@Override
 	public void onCast(Fighter caster) {

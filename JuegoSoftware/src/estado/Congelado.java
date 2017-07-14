@@ -4,7 +4,7 @@ import fighter.Fighter;
 
 public  class Congelado implements Estado {
 	public static double coeficient = 0.5;
-	public Congelado(Fighter fighter) {
+	public Congelado() {
 		// TODO Auto-generated constructor stub
 	}
 

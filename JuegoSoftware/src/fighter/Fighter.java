@@ -15,8 +15,10 @@ public class Fighter {
 	String descripcionAtaque="";
 	public Strategy strategy;
 	public Efecto efecto;
+	public int bonusDmg;
 	public Fighter() {
 			estado = new Normal();
+			bonusDmg = 0;
 	}
 
 	public int getHealth() {
@@ -43,7 +45,7 @@ public class Fighter {
 
 	public double getAttack() {
 		// TODO Auto-generated method stub
-		return stats.attack + inventory.weapon.getValue() * strategy.getAttackFactor();
+		return stats.attack + bonusDmg +inventory.weapon.getValue() * strategy.getAttackFactor();
 	}
 
 	public double getDefense() {
