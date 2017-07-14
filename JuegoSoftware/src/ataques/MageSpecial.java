@@ -9,6 +9,7 @@ public class MageSpecial extends Template{
 
 	public MageSpecial(Fighter fighter) {
 		super(fighter);
+		
 		// TODO Auto-generated constructor stub
 	}
 

@@ -17,6 +17,7 @@ public class Start implements Event {
 		
 		Player player = game.playerController.createPlayer();
 		game.player = player;
+		
 		game.eventos.add(new Map());
 
 	}

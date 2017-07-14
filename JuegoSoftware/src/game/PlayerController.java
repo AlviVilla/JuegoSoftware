@@ -2,10 +2,17 @@ package game;
 
 import java.util.Scanner;
 
+import ataques.MageSpecial;
+import ataques.RougeSpecial;
+import ataques.Template;
+import ataques.WarriorSpecial;
+import calculator.CombatCalculator;
 import decorador.Defensivo;
 import decorador.Normalucho;
 import decorador.Poderoso;
-
+import efectos.AplicarCongelado;
+import efectos.AplicarVeneno;
+import efectos.BuffarDefensa;
 import efectos.Neutro;
 import fighter.Fighter;
 import fighter.Player;
@@ -16,12 +23,14 @@ import strategy.Normal;
 
 public class PlayerController {
 	
-	public void combatAction(Fighter player){
+	public void combatAction(Fighter player, CombatCalculator calculator, Fighter enemy){
 		input: while(true){
 		System.out.println("Que quieres hacer?: ");
 		System.out.println("");
 		System.out.println("1] Ataque normal		2] Ataque Especial");
 		System.out.println("3] Cambiar Estrategia			4] ");
+		
+		
 		
 		if(player.strategy.getStrategy()=="defensiva")
 			player = new Defensivo(player);
@@ -29,15 +38,43 @@ public class PlayerController {
 			player = new Poderoso(player);
 		else 
 			player = new Normalucho(player);
+		
+		System.out.println(player.strategy.getStrategy());
+		
 		Scanner sc = new Scanner(System.in);
 		int x = sc.nextInt();
 		switch (x) {
 		case 1:
 			player.efecto = new Neutro();
+			player.template.normalAttack();
+			calculator.resolveTurn(player, enemy);
+			player.getDecorador();
 			break input;
-		case 2:
 			
-			break input;
+		case 2:
+			if(player.getMana() <10){
+				System.out.println("No hay suficiente mana");
+				break input;
+			}
+			else{
+				if(player.tipo=="mago"){
+					player.template.chooseAttack();
+					player.efecto.onHit(enemy);
+				}
+				else if(player.tipo=="rogue"){
+					player.template.chooseAttack();
+					player.efecto.onHit(enemy);
+					
+				}
+				else if(player.tipo=="warrior"){
+					player.template.chooseAttack();
+					player.efecto.onCast(player);	
+					
+				}
+				calculator.resolveTurn(player, enemy);
+				player.getDecorador();
+				break input;
+		}
 		case 3:
 			decideStrategy(player);
 			break;
@@ -52,6 +89,28 @@ public class PlayerController {
 		int x = 15;
 		int aux;
 		Player player = new Player();
+		System.out.println("Hola aventurero! Que clase deseas ser?");
+		Scanner sc = new Scanner(System.in);
+		int z = sc.nextInt();
+		switch (z) {
+		case 1:
+			System.out.println("Enhorabuena eres un mago!");
+			player.tipo="mago";
+			player.template = new MageSpecial(player);
+			break;
+		case 2:
+			System.out.println("Enhorabuena eres un rogue!");
+			player.tipo="rogue";
+			player.template = new RougeSpecial(player);
+			break;
+		case 3:
+			System.out.println("Enhorabuena eres un warrior!");
+			player.tipo="warrior";
+			player.template = new WarriorSpecial(player);
+			break;
+		default: 
+			System.out.println("opcion no valida");
+		}
 		System.out.println("Tus estadisticas iniciales son: ");
 		printStats(player);
 		System.out.println("Tienes " + x + " puntos extra ");
@@ -75,6 +134,7 @@ public class PlayerController {
 		aux = inputStat(x);
 		player.stats.speed += aux;
 		x -= aux;
+		
 		return player;
 	}
 	

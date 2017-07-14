@@ -8,5 +8,6 @@ public class Weapon {
 		return value;
 	}
 	public Weapon() {
+		value =1;
 	}
 }

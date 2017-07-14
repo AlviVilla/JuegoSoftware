@@ -6,4 +6,7 @@ public class Armor {
 		 return value;
 		 
 	 }
+	 public Armor(){
+		 value=1;
+	 }
 }

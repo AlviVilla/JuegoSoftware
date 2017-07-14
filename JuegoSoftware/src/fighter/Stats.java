@@ -14,7 +14,7 @@ public class Stats {
 	public Stats(int lvl){
 		
 		maxHealth = 10*lvl+50;
-		maxMana  = 10*lvl;
+		maxMana  = 10*lvl+1;
 		mana = maxMana;
 		health = maxHealth;
 		attack = 2*lvl+3;

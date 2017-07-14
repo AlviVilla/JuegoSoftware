@@ -5,6 +5,7 @@ import java.util.Scanner;
 import calculator.CombatCalculator;
 import fighter.Fighter;
 import game.Game;
+import game.PlayerController;
 
 public class Fight implements Event {
 	
@@ -20,10 +21,11 @@ public class Fight implements Event {
 	@Override
 	public void execute(Game game) {
 		//Rand y elegimos un enemigo
-		enemigo = game.factory.generateWarrior(game.level);
 		
-		
-		
+		CombatCalculator calculadora=game.calculator;
+		PlayerController controller = game.playerController;
+		System.out.println(game.player.stats.attack);
+		controller.combatAction(game.player, calculadora, enemigo);
 		}
 	}
 		/*
