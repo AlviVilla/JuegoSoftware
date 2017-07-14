@@ -1,4 +1,4 @@
-package decorator;
+package decorador;
 
 import fighter.Fighter;
 

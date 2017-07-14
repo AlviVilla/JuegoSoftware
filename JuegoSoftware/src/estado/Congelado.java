@@ -1,4 +1,4 @@
-mpackage estado;
+package estado;
 
 import fighter.Fighter;
 

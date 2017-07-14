@@ -7,12 +7,8 @@ public class MontañaMage implements Mage{
 
 	public NPC generate(int lvl) {
 		
-		NPC mago =new NPC(lvl);
-		mago.stats.attack+=3;
-		
-		
-		
-		return mago;
+
+		return new NPC(lvl);
 	}
 
 

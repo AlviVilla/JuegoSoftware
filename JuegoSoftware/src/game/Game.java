@@ -22,14 +22,14 @@ public class Game {
 	//public int map;
 	public int level;
 	public EnemyGenerator factory;
-	
+	public PlayerController playerController;
 	
 	public Game(){
 		calculator = CombatCalculator.getInstace();
 		ramdomSeed = new Random(System.currentTimeMillis());
 		eventos = new Stack<Event>();
 		eventos.add(new Start());
-		
+		playerController = new PlayerController();
 		
 	}
 	

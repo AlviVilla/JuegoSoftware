@@ -2,14 +2,11 @@ package fighter;
 
 import java.util.Random;
 
-import factory.CiudadEnemyFactory;
-import factory.DesiertoEnemyFactory;
-import factory.EnemyGenerator;
-import factory.MontañaEnemyFactory;
 import game.Game;
 import strategy.Agressive;
 import strategy.Defensive;
 import strategy.Normal;
+import strategy.Strategy;
 
 public class NPC extends Fighter{
 	Random randomStrategy	 = new Random(System.currentTimeMillis());
@@ -25,5 +22,4 @@ public class NPC extends Fighter{
 			super.strategy = new Defensive();
 		
 	}
-
 }

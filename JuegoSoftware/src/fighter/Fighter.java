@@ -1,8 +1,8 @@
 package fighter;
 
-import decorator.Poderoso;
+import efectos.Efecto;
 import estado.Estado;
-
+import estado.Normal;
 import inventory.Inventory;
 import strategy.Strategy;
 
@@ -11,23 +11,24 @@ public class Fighter {
 	
 	public Stats stats;
 	private Inventory inventory;
+	public Estado estado;
 	String descripcionAtaque="";
-
 	public Strategy strategy;
-
+	public Efecto efecto;
 	public Fighter() {
-			
+			estado = new Normal();
 	}
-	public String getDecorador(){
-		return descripcionAtaque;
-		
-	}
+
 	public int getHealth() {
 		return stats.health;
 	}
 	public void takeDmg(int dmg){
 		
 		stats.health -= dmg;
+		
+	}
+	public String getDecorador(){
+		return descripcionAtaque;
 		
 	}
 	
@@ -41,19 +42,13 @@ public class Fighter {
 	}
 
 	public double getAttack() {
-		int i =1;
-		if(i==0){
-			Fighter fighter = new Fighter();
-			fighter=new Poderoso(this);
-			
-		}
 		// TODO Auto-generated method stub
-		return stats.attack + inventory.weapon.getValue();
+		return stats.attack + inventory.weapon.getValue() * strategy.getAttackFactor();
 	}
 
 	public double getDefense() {
 		// TODO Auto-generated method stub
-		return stats.defense + inventory.armor.getValue();
+		return stats.defense + inventory.armor.getValue() * strategy.getDefenseFactor();
 	}
 	public void reciveDmg(int dmg){
 		stats.health -= dmg;

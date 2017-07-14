@@ -3,9 +3,9 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
 
-import decorator.Defensivo;
-import decorator.Normalucho;
-import decorator.Poderoso;
+import decorador.Defensivo;
+import decorador.Normalucho;
+import decorador.Poderoso;
 import event.Event;
 import factory.CiudadEnemyFactory;
 import factory.DesiertoEnemyFactory;
@@ -36,16 +36,16 @@ public class Map implements Event {
 		addEnemies(game);
 	}
 
-	private void addEnemies(Game game){
+private void addEnemies(Game game){
 		
 		//Logica para nivel
-		NPC mago= game.factory.generateMage(1);
+		NPC mago= game.factory.generateMage(game.level);
 		añadirCondimentos(mago,game);
 
-		NPC rogue= game.factory.generateRogue(1);
+		NPC rogue= game.factory.generateRogue(game.level);
 		añadirCondimentos(rogue,game);
 
-		NPC warrior= game.factory.generateWarrior(1);
+		NPC warrior= game.factory.generateWarrior(game.level);
 		añadirCondimentos(warrior,game);
 		
 		game.eventos.push(new Fight(mago));
@@ -62,4 +62,6 @@ public class Map implements Event {
 			npc=new Defensivo(npc);
 		
 	}
+	
+
 }

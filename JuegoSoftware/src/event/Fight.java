@@ -13,14 +13,14 @@ public class Fight implements Event {
 
 	public Fight(Fighter enemigo) {
 		
-
+		this.enemigo = enemigo;
 
 	}
 
 	@Override
 	public void execute(Game game) {
 		//Rand y elegimos un enemigo
-		calculator.resolveTurn(game.player, enemigo);
+		enemigo = game.factory.generateWarrior(game.level);
 		
 		
 		
