@@ -36,9 +36,9 @@ public class Map implements Event {
 	private void addEnemies(Game game){
 		
 		//Logica para nivel
-		game.eventos.push(new Enemy());
-		game.eventos.push(new Enemy());
-		game.eventos.push(new Enemy());
+		game.eventos.push(new Fight(game.factory.generateMage(game.level)));
+		game.eventos.push(new Fight(game.factory.generateRogue(game.level)));
+		game.eventos.push(new Fight(game.factory.generateWarrior(game.level)));
 		
 	}
 	

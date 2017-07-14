@@ -13,7 +13,7 @@ public class Fight implements Event {
 
 	public Fight(Fighter enemigo) {
 		
-
+		this.enemigo = enemigo;
 
 	}
 
