@@ -10,9 +10,9 @@ public class Fighter {
 	
 	public Stats stats;
 	private Inventory inventory;
-	
+	public onHit
 
-	Strategy strategy;
+	public Strategy strategy;
 
 	public Fighter() {
 			
@@ -38,12 +38,12 @@ public class Fighter {
 
 	public double getAttack() {
 		// TODO Auto-generated method stub
-		return stats.attack + inventory.weapon.getValue();
+		return stats.attack + inventory.weapon.getValue() * strategy.getAttackFactor();
 	}
 
 	public double getDefense() {
 		// TODO Auto-generated method stub
-		return stats.defense + inventory.armor.getValue();
+		return stats.defense + inventory.armor.getValue() * strategy.getDefenseFactor();
 	}
 	public void reciveDmg(int dmg){
 		stats.health -= dmg;
