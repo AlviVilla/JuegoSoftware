@@ -15,4 +15,10 @@ public class Normal implements Strategy {
 		return 1;
 	}
 
+	@Override
+	public String getStrategy() {
+		// TODO Auto-generated method stub
+		return "normal";
+	}
+
 }

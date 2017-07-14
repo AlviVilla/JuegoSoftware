@@ -14,4 +14,10 @@ public class Agressive implements Strategy {
 		return 0.75;
 	}
 
+	@Override
+	public String getStrategy() {
+		// TODO Auto-generated method stub
+		return "agresiva";
+	}
+
 }

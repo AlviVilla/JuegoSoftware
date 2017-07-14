@@ -3,12 +3,15 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
 
-import event.Enemy;
+import decorator.Defensivo;
+import decorator.Normalucho;
+import decorator.Poderoso;
 import event.Event;
 import factory.CiudadEnemyFactory;
 import factory.DesiertoEnemyFactory;
 import factory.EnemyGenerator;
 import factory.MontañaEnemyFactory;
+import fighter.Fighter;
 import fighter.NPC;
 import game.Game;
 
@@ -36,11 +39,27 @@ public class Map implements Event {
 	private void addEnemies(Game game){
 		
 		//Logica para nivel
-		game.eventos.push(new Enemy());
-		game.eventos.push(new Enemy());
-		game.eventos.push(new Enemy());
+		NPC mago= game.factory.generateMage(1);
+		añadirCondimentos(mago,game);
+
+		NPC rogue= game.factory.generateRogue(1);
+		añadirCondimentos(rogue,game);
+
+		NPC warrior= game.factory.generateWarrior(1);
+		añadirCondimentos(warrior,game);
 		
+		game.eventos.push(new Fight(mago));
+		game.eventos.push(new Fight(rogue));
+		game.eventos.push(new Fight(warrior));
 	}
 	
-
+	private void añadirCondimentos(Fighter npc, Game game){
+		if(npc.strategy.getStrategy() == "normal")
+			npc= new Normalucho(npc);
+		if(npc.strategy.getStrategy()== "agresiva")
+			npc=new Poderoso(npc);
+		if(npc.strategy.getStrategy()== "defensiva")
+			npc=new Defensivo(npc);
+		
+	}
 }

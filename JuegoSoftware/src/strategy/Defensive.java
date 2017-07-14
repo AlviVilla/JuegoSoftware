@@ -14,4 +14,10 @@ public class Defensive implements Strategy {
 		return 1.25;
 	}
 
+	@Override
+	public String getStrategy() {
+		// TODO Auto-generated method stub
+		return "defensiva";
+	}
+
 }

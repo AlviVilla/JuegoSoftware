@@ -20,7 +20,7 @@ public class Fight implements Event {
 	@Override
 	public void execute(Game game) {
 		//Rand y elegimos un enemigo
-		enemigo = game.factory.generateWarrior(game.level);
+		calculator.resolveTurn(game.player, enemigo);
 		
 		
 		

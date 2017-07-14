@@ -8,14 +8,11 @@ public class Stats {
 	public int defense;
 	public int intelligence;
 	public int speed;
-	public int maxMana;
-	public int mana;
+
 	
 	public Stats(int lvl){
 		
 		maxHealth = 10*lvl+50;
-		maxMana  = 10*lvl;
-		mana = maxMana;
 		health = maxHealth;
 		attack = 2*lvl+3;
 		defense = 1*lvl+1;
